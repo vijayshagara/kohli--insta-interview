@@ -1,0 +1,27 @@
+.hole {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  margin-left: 140px;
+  margin-top: 60px;
+}
+
+.right {
+  margin-left: 100px;
+  margin-top: 60px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-position: center;
+}
+
+.postimage{
+  width: 300px;
+  height: 200px;
+  background-position: center;
+}

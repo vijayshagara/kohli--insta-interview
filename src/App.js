@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { Menu } from "antd";
+import Router from "./component/router/Router";
+import { useNavigate } from "react-router-dom";
+import {
+  HomeTwoTone,
+  ProfileTwoTone,
+  CaretRightOutlined,
+  MailOutlined,
+} from "@ant-design/icons";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function App() {
+  const navigate = useNavigate();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <Menu
+              style={{ margin: "40px" }}
+              onClick={({ key }) => {
+                if (key === "signout") {
+                } else {
+                  navigate(key);
+                }
+              }}
+              items={[
+                { label: "instagram", style: { fontSize: "30px" } },
+                { label: "Home", key: "/", icon: <HomeTwoTone /> },
+                { label: "Message", key: "/message", icon: <MailOutlined /> },
+                { label: "Create", key: "/create", icon: <CaretRightOutlined /> },
+                { label: "Profile", key: "/profile", icon: <ProfileTwoTone /> },
+              ]}
+            ></Menu>
+            <Router />
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
